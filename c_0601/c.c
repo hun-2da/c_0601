@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typedef int element;
-typedef struct ListNode { 	// ³ëµå Å¸ÀÔ
+typedef struct ListNode { 	// ë…¸ë“œ íƒ€ì…
 	element data;
 	struct ListNode* link;
 } ListNode;
@@ -18,7 +18,7 @@ ListNode* insert_first(ListNode* head, element data)
 		node->link = head->link;	// (1)
 		head->link = node;		// (2)
 	}
-	return head;	// º¯°æµÈ Çìµå Æ÷ÀÎÅÍ¸¦ ¹İÈ¯ÇÑ´Ù. 
+	return head;	// ë³€ê²½ëœ í—¤ë“œ í¬ì¸í„°ë¥¼ ë°˜í™˜í•œë‹¤. 
 }
 ListNode* insert_last(ListNode* head, element data)
 {
@@ -33,9 +33,9 @@ ListNode* insert_last(ListNode* head, element data)
 		head->link = node;		// (2)
 		head = node;		// (3)
 	}
-	return head;	// º¯°æµÈ Çìµå Æ÷ÀÎÅÍ¸¦ ¹İÈ¯ÇÑ´Ù. 
+	return head;	// ë³€ê²½ëœ í—¤ë“œ í¬ì¸í„°ë¥¼ ë°˜í™˜í•œë‹¤. 
 }
-// ¸®½ºÆ®ÀÇ Ç×¸ñ Ãâ·Â
+// ë¦¬ìŠ¤íŠ¸ì˜ í•­ëª© ì¶œë ¥
 void print_list(ListNode* head)
 {
 	ListNode* p;
@@ -78,33 +78,33 @@ int main(void)
 	int number;
 
 	while (1) {
-		printf("¸Ş´º\n 1)Ã³À½ »ğÀÔ\n 2)³¡ »ğÀÔ\n 3)Ã³À½ »èÁ¦\n 4)³¡ »èÁ¦\n 5)Á¾·á\n :");
+		printf("ë©”ë‰´\n 1)ì²˜ìŒ ì‚½ì…\n 2)ë ì‚½ì…\n 3)ì²˜ìŒ ì‚­ì œ\n 4)ë ì‚­ì œ\n 5)ì¢…ë£Œ\n :");
 		scanf_s("%d", &number);
 		switch (number) {
 		case 1:
-			printf("Ã³À½ »ğÀÔµÉ ¼ıÀÚ¸¦ ÀÔ·ÂÇØ ÁÖ½Ê½Ã¿À :");
+			printf("ì²˜ìŒ ì‚½ì…ë  ìˆ«ìë¥¼ ì…ë ¥í•´ ì£¼ì‹­ì‹œì˜¤ :");
 			scanf_s("%d", &number);
 			head = insert_first(head, number);
 			print_list(head);
 			break;
 		case 2:
-			printf("¸¶Áö¸·¿¡ »ğÀÔµÉ ¼ıÀÚ¸¦ ÀÔ·ÂÇØ ÁÖ½Ê½Ã¿À :");
+			printf("ë§ˆì§€ë§‰ì— ì‚½ì…ë  ìˆ«ìë¥¼ ì…ë ¥í•´ ì£¼ì‹­ì‹œì˜¤ :");
 			scanf_s("%d", &number);
 			head = insert_last(head, number);
 			print_list(head);
 			break;
 		case 3:
-			printf("Ã³À½ ³ëµå¸¦ »èÁ¦ÇÕ´Ï´Ù.");
+			printf("ì²˜ìŒ ë…¸ë“œë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.");
 			head = first_delete(head);
 			print_list(head);
 			break;
 		case 4:
-			printf("¸¶Áö¸· ³ëµå¸¦ »èÁ¦ÇÕ´Ï´Ù.");
+			printf("ë§ˆì§€ë§‰ ë…¸ë“œë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.");
 			head = last_delete(head);
 			print_list(head);
 			break;
 		
-		case 0: printf("Á¾·áµË´Ï´Ù. "); return;
+		case 5: printf("ì¢…ë£Œë©ë‹ˆë‹¤. "); return;
 		}
 	}
 	print_list(head);
